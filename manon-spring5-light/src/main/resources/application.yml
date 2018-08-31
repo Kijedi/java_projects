@@ -1,0 +1,36 @@
+### FINAL CONFIGURATION ###  (warning: avoid tabs, indent with two spaces)
+# see https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+spring:
+  http.converters.preferred-json-mapper: jackson
+
+server:
+  compression.enabled: false # compression is handled by Nginx proxy
+  servlet.application-display-name: manon
+  ssl.enabled: false # encryption is handled by Nginx proxy
+  undertow.accesslog.enabled: false
+  servlet.context-path: "/"
+
+info.app.name: manon
+management:
+  endpoint:
+    configprops.enabled: true
+    env.enabled: true
+    health:
+      enabled: true
+      show-details: always
+    info.enabled: true
+    metrics.enabled: true
+    scheduledtasks.enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /actuator
+      exposure.include: ["configprops", "env", "health", "info", "metrics", "scheduledtasks"]
+
+manon:
+  admin:
+    default-admin:
+      username: ROOT
+      password: woot
+  security.bcrypt.strength: 6

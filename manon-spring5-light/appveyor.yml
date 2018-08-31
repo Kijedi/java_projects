@@ -1,0 +1,22 @@
+version: build-{build}.{branch}
+clone_depth: 3
+
+branches:
+  only:
+    - spring5
+    - spring5-light
+
+platform: x64
+
+install:
+  - SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0
+  - SET PATH=C:\Program Files\Java\jdk1.8.0\bin;%PATH%
+
+build_script:
+  - mvnw clean package -DskipTests
+
+test_script:
+  - mvnw test
+
+cache:
+- C:\Users\appveyor\.m2

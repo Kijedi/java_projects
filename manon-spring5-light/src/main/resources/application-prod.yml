@@ -1,0 +1,17 @@
+### PRODUCTION CONFIGURATION for production application ###  (warning: avoid tabs, indent with two spaces)
+
+spring:
+  data:
+    mongodb:
+      host: ${MANON_PROD_MONGODB_HOST}
+      port: ${MANON_PROD_MONGODB_PORT}
+      database: ${MANON_PROD_MONGODB_DB_NAME}
+      username: ${MANON_PROD_MONGODB_USERNAME}
+      password: ${MANON_PROD_MONGODB_PASSWORD}
+      authentication-database: ${MANON_PROD_MONGODB_AUTH_DB_NAME}
+
+manon:
+  admin:
+    default-admin:
+      username: ${MANON_PROD_ADMIN_USERNAME}
+      password: ${MANON_PROD_ADMIN_PASSWORD}
